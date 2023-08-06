@@ -12,7 +12,7 @@ const authToken = process.env.TWILIO_AUTH_TOKEN
 const twilioPhoneNumber = process.env.TWILIO_PHONE_NUMBER
 
 if (!accountSid || !authToken || !twilioPhoneNumber) {
-  throw new Error(
+  console.log(
     'TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, and TWILIO_PHONE_NUMBER must be set in .env file.'
   )
 }
