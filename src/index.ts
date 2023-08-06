@@ -13,11 +13,13 @@ app.use(express.urlencoded({ extended: false }))
 
 // Add the Twilio middleware to a specific route
 app.post('/phone', twilioMiddleware, (req: Request, res: Response) => {
-  res.send('Hello from Express with Twilio middleware! To get message post "phone" in json in route phone')
+  res.send(`SMS is Sent ${req.body.phone}`)
 })
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('SMS IS SENT!')
+  res.send(
+    'Hello from Express with Twilio middleware! To get message post "phone" in json in route phone'
+  )
 })
 
 app.listen(port, () => {
