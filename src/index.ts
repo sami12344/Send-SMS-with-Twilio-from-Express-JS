@@ -1,7 +1,8 @@
 // src/app.ts
-import express, { Request, Response } from 'express'
+import express, { NextFunction, Request, Response } from 'express'
 import * as dotenv from 'dotenv'
-import { twilioMiddleware } from './middleware/twilioMiddleware'
+import { twilioMiddleware } from './middleware/sms'
+import makeCallMiddleware from './middleware/call'
 
 dotenv.config()
 
@@ -15,6 +16,29 @@ app.use(express.urlencoded({ extended: false }))
 app.post('/sms', twilioMiddleware, (req: Request, res: Response) => {
   res.send(`SMS is Sent ${req.body.phone}`)
 })
+// Define an interface to extend the Request interface
+interface CustomRequest extends Request {
+  recipientPhoneNumber?: string;
+  callSid?: string;
+}
+app.post(
+  '/get/call',
+  (req: CustomRequest, res: Response, next: NextFunction) => {
+    const recipientPhoneNumber = req.body.phone
+    if (!recipientPhoneNumber) {
+      return res.status(400).send('Recipient phone number is required.')
+    }
+
+    req.recipientPhoneNumber = recipientPhoneNumber
+    next()
+  },
+  makeCallMiddleware,
+  (req: CustomRequest, res: Response) => {
+    // The Twilio call has been made, and the call SID is available in req.callSid
+    res.send('Call SID: ' + req.callSid)
+  }
+)
+
 
 app.get('/', (req: Request, res: Response) => {
   res.send(
