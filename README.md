@@ -2,7 +2,7 @@
 
 ![Frame 11](https://github.com/sami12344/Send-SMS-with-Twilio-from-Express-JS/assets/77746252/293f6f2b-3f18-4b72-8947-518a305e5a3f)
 
-# Send SMS with Twilio from Express TS
+<h1 align="center" >Send SMS with Twilio from Express TS</h1> 
 
 
 This repository contains a simple Express.js application written in TypeScript that demonstrates how to send SMS messages using the Twilio API. Twilio is a cloud communications platform that enables developers to integrate messaging, voice, and video capabilities into their applications.
