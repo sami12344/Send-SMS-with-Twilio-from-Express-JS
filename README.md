@@ -1,7 +1,6 @@
+<img src="https://github.com/sami12344/Send-SMS-with-Twilio-from-Express-JS/assets/77746252/003cdb17-5479-4d9a-9688-151151be198e" alt="Banner" style="width: 100%;">
 
-![Frame 11](https://github.com/sami12344/Send-SMS-with-Twilio-from-Express-JS/assets/77746252/3c60eac1-0b40-449c-aaa0-f2024528dcb3)
 
-![Frame 11](https://github.com/sami12344/Send-SMS-with-Twilio-from-Express-JS/assets/77746252/003cdb17-5479-4d9a-9688-151151be198e)
 
 
 <h1 align="center" >Send SMS with Twilio from Express TS</h1> 
