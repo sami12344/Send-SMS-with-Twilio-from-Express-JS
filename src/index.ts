@@ -6,7 +6,7 @@ import { twilioMiddleware } from './middleware/twilioMiddleware'
 dotenv.config()
 
 const app = express()
-const port = process.env.PORT
+const port = process.env.PORT || 3000
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
